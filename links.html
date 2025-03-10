@@ -1,0 +1,244 @@
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charozi - Links</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/unifont@15.0.01/font/unifont.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="creditsOverlay" style="display: none;">
+        <div class="star-wars-credits">
+            <div class="crawl">
+                <div class="title">
+                    <p>CHAROZI'S SITE</p>
+                    <h1>CREDITS</h1>
+                </div>
+                <div class="credits-content">
+                    <p>Idea: Charozi</p>
+                    <p>Design: Charozi</p>
+                    <p>Colours: Charozi</p>
+                    <p>Coding: Not Charozi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="minecraftPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid #000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); z-index: 1000;">
+        <h2>Minecraft Server</h2>
+        <p>Join our Minecraft server at mc.charozi.com!</p>
+        <button id="closeMinecraftPopup">Close</button>
+    </div>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>CHAROZI</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li>
+                    <div class="code-input-nav-container">
+                        <input type="text" id="codeInput" placeholder="Enter code" class="code-input-nav">
+                        <button id="submitCode" class="code-btn-nav">Go</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="links-wall">
+            <div class="links-content">
+                <h2>My Links</h2>
+                <div class="links-container">
+                    <div class="links-row">
+                        <a href="https://www.youtube.com/@charxzi" target="_blank" class="link-item youtube-link">
+                            <div class="link-icon">
+                                <span class="material-icons">play_circle</span>
+                            </div>
+                            <div class="link-details">
+                                <h3>YouTube</h3>
+                                <p>@charxzi</p>
+                            </div>
+                            <div class="link-preview">
+                                <video width="100%" height="auto" muted loop>
+                                    <source src="/MinecraftYoutubeChannel.mp4" type="video/mp4">
+                                </video>
+                                <div class="youtube-logo-overlay">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://discord.gg/awFX43bUm5" target="_blank" class="link-item discord-link">
+                            <div class="link-icon">
+                                <span class="material-icons">chat</span>
+                            </div>
+                            <div class="link-details">
+                                <h3>Discord</h3>
+                                <p>Join our community</p>
+                            </div>
+                            <div class="link-preview">
+                                <img src="/czarrrrooooooooooooooooooooooo.jpg" alt="Charozi" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="links-row">
+                        <a href="https://www.twitch.tv/charozi" target="_blank" class="link-item twitch-link">
+                            <div class="link-icon">
+                                <span class="material-icons">live_tv</span>
+                            </div>
+                            <div class="link-details">
+                                <h3>Twitch</h3>
+                                <p>Watch me live</p>
+                            </div>
+                            <div class="link-preview">
+                                <video width="100%" height="auto" muted loop>
+                                    <source src="/Twitch.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </a>
+                        <a href="https://namemc.com/profile/Charozi.1" target="_blank" class="link-item namemc-link">
+                            <div class="link-icon">
+                                <span class="material-icons">person</span>
+                            </div>
+                            <div class="link-details">
+                                <h3>NameMC</h3>
+                                <p>View my profile</p>
+                            </div>
+                            <div class="link-preview">
+                                <div class="minecraft-profile">
+                                    <svg viewBox="0 0 64 64">
+                                        <path d="M16,16v32h32V16H16z M44,44H20V20h24V44z" fill="currentColor"/>
+                                        <path d="M24,24v16h16V24H24z M36,36H28V28h8V36z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@charxzi" target="_blank">
+                <span class="material-icons">play_circle</span> YouTube
+            </a>
+            <a href="https://discord.gg/awFX43bUm5" target="_blank">
+                <span class="material-icons">chat</span> Discord
+            </a>
+        </div>
+        <p>&#169; 2025 Charozi. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const secretCodes = {
+            '#113': 'rickroll',
+            '#919': 'darktheme',
+            '#818': 'rgbtheme',
+            '#313': 'credits',
+            '#777': 'help',
+            '#555': 'minecraft'
+        };
+
+        document.getElementById('submitCode').addEventListener('click', function() {
+            const codeInput = document.getElementById('codeInput');
+            const code = '#' + codeInput.value.trim();
+
+            switch(secretCodes[code]) {
+                case 'help':
+                    alert('There are secrets to be found...');
+                    break;
+                case 'rickroll':
+                    window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0';
+                    break;
+                case 'darktheme':
+                    toggleTheme('dark');
+                    break;
+                case 'rgbtheme':
+                    toggleTheme('rgb');
+                    break;
+                case 'credits':
+                    showCredits();
+                    break;
+                case 'minecraft':
+                    document.getElementById('minecraftPopup').style.display = 'block';
+                    break;
+                default:
+                    alert('Keep searching...');
+            }
+        });
+
+        function toggleTheme(theme) {
+            const body = document.body;
+            if (theme === 'dark') {
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else if (theme === 'rgb') {
+                body.classList.add('rgb-theme');
+                localStorage.setItem('theme', 'rgb');
+            } else {
+                body.classList.remove('dark-theme', 'rgb-theme');
+                localStorage.removeItem('theme');
+            }
+        }
+
+        function showCredits() {
+            const creditsOverlay = document.getElementById('creditsOverlay');
+            creditsOverlay.style.display = 'block';
+
+            setTimeout(() => {
+                creditsOverlay.style.display = 'none';
+            }, 45000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-theme');
+            } else if (localStorage.getItem('theme') === 'rgb') {
+                body.classList.add('rgb-theme');
+            }
+
+            const closeMinecraftPopupButton = document.getElementById('closeMinecraftPopup');
+            closeMinecraftPopupButton.addEventListener('click', () => {
+                const minecraftPopup = document.getElementById('minecraftPopup');
+                minecraftPopup.style.display = 'none';
+            });
+
+
+            const codeInput = document.getElementById('codeInput');
+            codeInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('submitCode').click();
+                }
+            });
+
+
+            const linkCards = document.querySelectorAll('.link-item');
+            linkCards.forEach(card => {
+                const video = card.querySelector('video');
+                if (video) {
+                    card.addEventListener('mouseenter', () => {
+                        video.play().catch(error => {
+                            console.log('Autoplay was prevented:', error);
+                        });
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

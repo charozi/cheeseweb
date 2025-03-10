@@ -1,0 +1,188 @@
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charozi - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/unifont@15.0.01/font/unifont.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>CHAROZI</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li>
+                    <div class="code-input-nav-container">
+                        <input type="text" id="codeInput" placeholder="Enter code" class="code-input-nav">
+                        <button id="submitCode" class="code-btn-nav">Go</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <img src="/czarrrrooooooooooooooooooooooo.jpg" alt="Charozi Profile">
+                </div>
+                <h2>Charozi</h2>
+                <div class="cta-buttons">
+                    <a href="https://www.youtube.com/@charxzi" target="_blank" class="btn youtube">
+                        <span class="material-icons">play_circle</span> YouTube
+                    </a>
+                    <a href="projects.html" class="btn">View Projects</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="creditsOverlay" style="display: none;">
+        <div class="star-wars-credits">
+            <div class="crawl">
+                <div class="title">
+                    <p>CHAROZI'S SITE</p>
+                    <h1>CREDITS</h1>
+                </div>
+                <div class="credits-content">
+                    <p>Idea: Charozi</p>
+                    <p>Design: Charozi</p>
+                    <p>Colours: Charozi</p>
+                    <p>Coding: Not Charozi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@charxzi" target="_blank">
+                <span class="material-icons">play_circle</span> YouTube
+            </a>
+            <a href="https://discord.gg/awFX43bUm5" target="_blank">
+                <span class="material-icons">chat</span> Discord
+            </a>
+        </div>
+        <p>&#169; 2025 Charozi. All Rights Reserved.</p>
+    </footer>
+
+    <div class="minecraft-popup" id="minecraftPopup">
+        <button class="close-btn" onclick="document.getElementById('minecraftPopup').style.display='none'">×</button>
+        <h3>Minecraft Skin</h3>
+        <div id="skinContainer"></div>
+    </div>
+
+    <script>
+        const secretCodes = {
+            '#113': 'rickroll',
+            '#919': 'darktheme',
+            '#818': 'rgbtheme',
+            '#313': 'credits',
+            '#777': 'help',
+            '#444': 'whatsmyface'
+        };
+
+        document.getElementById('submitCode').addEventListener('click', async function() {
+            const codeInput = document.getElementById('codeInput');
+            const code = '#' + codeInput.value.trim();
+
+            switch(secretCodes[code]) {
+                case 'help':
+                    alert('There are secrets to be found...');
+                    break;
+                case 'rickroll':
+                    window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0';
+                    break;
+                case 'darktheme':
+                    toggleTheme('dark');
+                    break;
+                case 'rgbtheme':
+                    toggleTheme('rgb');
+                    break;
+                case 'credits':
+                    showCredits();
+                    break;
+                case 'whatsmyface':
+                    handleMinecraftSkin();
+                    break;
+                default:
+                    alert('Keep searching...');
+            }
+        });
+
+        async function handleMinecraftSkin() {
+            const username = prompt('Enter your Minecraft username:');
+            if (username) {
+                try {
+                    const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`);
+                    if (!response.ok) throw new Error('Player not found');
+
+                    const data = await response.json();
+                    const uuid = data.id;
+
+                    const skinContainer = document.getElementById('skinContainer');
+                    skinContainer.innerHTML = `
+                        <p>Username: ${username}</p>
+                        <p>UUID: ${uuid}</p>
+                        <img src="https://skins.mcstats.com/body/side/${uuid}" alt="Minecraft Skin">
+                    `;
+
+                    document.getElementById('minecraftPopup').style.display = 'block';
+                } catch (error) {
+                    alert('Could not find that player!');
+                }
+            }
+        }
+
+        function toggleTheme(theme) {
+            const body = document.body;
+            if (theme === 'dark') {
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else if (theme === 'rgb') {
+                body.classList.add('rgb-theme');
+                localStorage.setItem('theme', 'rgb');
+            } else {
+                body.classList.remove('dark-theme', 'rgb-theme');
+                localStorage.removeItem('theme');
+            }
+        }
+
+        function showCredits() {
+            const creditsOverlay = document.getElementById('creditsOverlay');
+            creditsOverlay.style.display = 'block';
+
+            setTimeout(() => {
+                creditsOverlay.style.display = 'none';
+            }, 45000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-theme');
+            } else if (localStorage.getItem('theme') === 'rgb') {
+                body.classList.add('rgb-theme');
+            }
+
+            // Add enter key functionality
+            const codeInput = document.getElementById('codeInput');
+            codeInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('submitCode').click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

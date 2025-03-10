@@ -1,0 +1,207 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charozi - Projects</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/unifont@15.0.01/font/unifont.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="creditsOverlay" style="display: none;">
+        <div class="star-wars-credits">
+            <div class="crawl">
+                <div class="title">
+                    <p>CHAROZI'S SITE</p>
+                    <h1>CREDITS</h1>
+                </div>
+                <div class="credits-content">
+                    <p>Idea: Charozi</p>
+                    <p>Design: Charozi</p>
+                    <p>Colours: Charozi</p>
+                    <p>Coding: Not Charozi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>CHAROZI</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li>
+                    <div class="code-input-nav-container">
+                        <input type="text" id="codeInput" placeholder="Enter code" class="code-input-nav">
+                        <button id="submitCode" class="code-btn-nav">Go</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects">
+            <div class="projects-content">
+                <h2>My Projects</h2>
+                <div class="links-container">
+                    <div class="links-row">
+                        <a href="https://www.twitch.tv/charozi" target="_blank" class="link-item twitch-link">
+                            <div class="link-icon">
+                                <span class="material-icons">live_tv</span>
+                            </div>
+                            <div class="link-details">
+                                <h3>Twitch Channel</h3>
+                                <p style="color: var(--white-color);">Sometimes streaming Minecraft</p>
+                            </div>
+                            <div class="link-preview">
+                                <video width="100%" height="auto" muted loop>
+                                    <source src="/Twitch.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="links-row">
+                        <a href="https://www.youtube.com/@charxzi" target="_blank" class="link-item youtube-link">
+                            <div class="link-icon">
+                                <span class="material-icons">play_circle</span>
+                            </div>
+                            <div class="link-details">
+                                <h3>YouTube Channel</h3>
+                                <p style="color: var(--white-color);">Minecraft Content</p>
+                            </div>
+                            <div class="link-preview">
+                                <video width="100%" height="auto" muted loop>
+                                    <source src="/MinecraftYoutubeChannel.mp4" type="video/mp4">
+                                </video>
+                                <div class="youtube-logo-overlay">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@charxzi" target="_blank">
+                <span class="material-icons">play_circle</span> YouTube
+            </a>
+            <a href="https://discord.gg/awFX43bUm5" target="_blank">
+                <span class="material-icons">chat</span> Discord
+            </a>
+        </div>
+        <p>&#169; 2025 Charozi. All Rights Reserved.</p>
+    </footer>
+
+    <div class="minecraft-popup" id="minecraftPopup">
+        <button class="close-btn" onclick="document.getElementById('minecraftPopup').style.display='none'">×</button>
+        <h3>Minecraft Skin</h3>
+        <div id="skinContainer2"></div>
+    </div>
+
+    <script>
+        const secretCodes = {
+            '#113': 'rickroll',
+            '#919': 'darktheme',
+            '#818': 'rgbtheme',
+            '#313': 'credits',
+            '#777': 'help'
+        };
+
+        document.getElementById('submitCode').addEventListener('click', function() {
+            const codeInput = document.getElementById('codeInput');
+            const code = '#' + codeInput.value.trim();
+
+            switch(secretCodes[code]) {
+                case 'help':
+                    alert('There are secrets to be found...');
+                    break;
+                case 'rickroll':
+                    window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0';
+                    break;
+                case 'darktheme':
+                    toggleTheme('dark');
+                    break;
+                case 'rgbtheme':
+                    toggleTheme('rgb');
+                    break;
+                case 'credits':
+                    showCredits();
+                    break;
+                default:
+                    alert('Keep searching...');
+            }
+        });
+
+        function toggleTheme(type) {
+            const body = document.body;
+            if (type === 'dark') {
+                body.classList.add('dark-theme');
+                body.classList.remove('rgb-theme');
+                localStorage.setItem('theme', 'dark');
+            } else if (type === 'rgb') {
+                body.classList.remove('dark-theme');
+                body.classList.add('rgb-theme');
+                localStorage.setItem('theme', 'rgb');
+            } else {
+                body.classList.remove('dark-theme', 'rgb-theme');
+                localStorage.removeItem('theme');
+            }
+        }
+
+        function showCredits() {
+            const creditsOverlay = document.getElementById('creditsOverlay');
+            creditsOverlay.style.display = 'block';
+            setTimeout(() => {
+                creditsOverlay.style.display = 'none';
+            }, 45000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const codeInput = document.getElementById('codeInput');
+            codeInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('submitCode').click();
+                }
+            });
+
+            const projectLinks = document.querySelectorAll('.link-item');
+
+            projectLinks.forEach(projectLink => {
+                const video = projectLink.querySelector('video');
+
+                if (video) {
+                    //
+                    projectLink.addEventListener('mouseenter', () => {
+                        video.play().catch(error => {
+                            console.log('Autoplay was prevented:', error);
+                        });
+                    });
+
+                    projectLink.addEventListener('mouseleave', () => {
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+
+                    //
+                    video.addEventListener('contextmenu', (e) => {
+                        e.preventDefault();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
